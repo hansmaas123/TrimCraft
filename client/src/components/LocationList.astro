@@ -1,0 +1,15 @@
+---
+const {locations} = Astro.props;
+import LocationCard from './../components/LocationCard.astro'
+---
+{
+
+locations.map((location) => (
+    <ul>
+        <li>
+            <LocationCard location={location}/>
+        </li>
+    </ul>
+) )
+
+}

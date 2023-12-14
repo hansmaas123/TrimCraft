@@ -1,0 +1,26 @@
+---
+const pageTitle = "Schedule";
+import '../css/global.css';
+import BaseLayout from './../layouts/BaseLayout.astro'
+import LocationList from './../components/LocationList.astro'
+// import Location from './../components/Location.astro'
+// const allLocations = await Astro.glob('../pages/details/*.md');
+// const {locations} = Astro.props
+import fetchApi from "../lib/strapi";
+const locations = await fetchApi({
+  endpoint: "locations",
+  wrappedByKey: "data",
+  query: { populate: "*"  },
+});
+
+const categories = await fetchApi({
+  endpoint: "categories",
+  wrappedByKey: "data",
+});
+
+
+---
+
+<BaseLayout>
+    <LocationList locations = {locations}/>
+</BaseLayout>

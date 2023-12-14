@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "locations",
+  "info": {
+    "singularName": "location",
+    "pluralName": "locations",
+    "displayName": "Location",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "Highlights": {
+      "type": "text",
+      "required": true
+    },
+    "Travelinfo": {
+      "type": "text"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "locations"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

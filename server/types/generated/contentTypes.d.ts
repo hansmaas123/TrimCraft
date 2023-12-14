@@ -677,6 +677,80 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryCategory extends Schema.CollectionType {
+  collectionName: 'categories';
+  info: {
+    singularName: 'category';
+    pluralName: 'categories';
+    displayName: 'Category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    locations: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
+      'api::location.location'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'Location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String & Attribute.Required;
+    Highlights: Attribute.Text & Attribute.Required;
+    Travelinfo: Attribute.Text;
+    categories: Attribute.Relation<
+      'api::location.location',
+      'manyToMany',
+      'api::category.category'
+    >;
+    image: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -693,6 +767,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::category.category': ApiCategoryCategory;
+      'api::location.location': ApiLocationLocation;
     }
   }
 }
