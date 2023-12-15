@@ -1,137 +1,54 @@
 ---
 import { Image } from "astro:assets";
 const { location } = Astro.props;
+
 ---
-    <p> {location.attributes.Highlights}</p>
-    <p>{location.attributes.Travelinfo}</p>
-    <p>{location.attributes.categories.data.attributes.Name}</p>
-
-
-
-
-
+  <div class="content__wrapper">
+    <p class="highlights"> {location.attributes.Highlights}</p>
+    <Image
+          src={`${import.meta.env.STRAPI_URL}${
+            location.attributes.image?.data.attributes.url
+          }`}
+          alt="Location image"
+          width="300"
+          height="400"
+          widths={[250, 350, 500, 750]}
+          sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
+        />
+  </div>
+  <div class="last__content">
+    <p class="travelinfo">{location.attributes.Travelinfo}</p>
+    <!-- <p>{location.attributes.categories?.data?.attributes?.Name}</p> -->
+  </div>
+      
+    
 <style>
-  .wrapper {
-    height: 100%;
-    container-type: inline-size;
+  .content__wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15rem;
+    height: fit-content;
   }
-
-  article {
-    height: 100%;
-
-    background-color: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--defaultShadow);
-    position: relative;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto min-content;
-    grid-template-areas:
-      "img img"
-      "title title"
-      "desc desc"
-      "price cta";
-
-    align-items: flex-start;
-    gap: var(--s1);
-
-    padding: var(--s2);
-
-    max-width: var(--maxContent);
-    margin: 0 auto;
-    margin-bottom: var(--s3);
+  .highlights{
+    width: 50rem;
   }
-
-  article:hover {
-    box-shadow: rgba(0, 0, 0, 0.4) 0px 4px 12px;
+  .travelinfo{
+    width: 60rem;
   }
-
-  .popular::after {
-    content: "";
-    background-color: var(--c-primary);
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 4em;
-    height: 4em;
-    padding-top: 2em;
-    clip-path: polygon(0 0, 100% 0, 100% 100%);
-  }
-
-  .popular::before {
-    content: "Top rated";
-    color: white;
-    position: absolute;
-    top: 1.4em;
-    right: 0;
-    rotate: 45deg;
-    z-index: 2;
-    font-size: 0.7em;
-  }
-
-  h3 {
-    font-size: var(--fs-l);
-    font-weight: 900;
-    grid-area: title;
-  }
-
+.last__content{
+  display: flex;
+  justify-content: center;
+}
   img {
     aspect-ratio: 3/4;
     object-fit: contain;
-
     grid-area: img;
-
     justify-self: center;
-
     padding: var(--s1);
   }
 
-  .description {
-    grid-area: desc;
-    align-self: baseline;
-
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-    color: var(--c-mid);
-  }
-
-  .price {
-    color: var(--c-primary);
-    grid-area: price;
-    line-height: 1;
-    align-self: flex-end;
-  }
-
-  .price span {
-    font-size: var(--fs-l);
-  }
-
-  button {
-    grid-area: cta;
-    align-self: flex-end;
-
-    background-color: var(--c-primary);
-    color: white;
-    border: none;
-    padding: var(--s_2) var(--s_1);
-    font: inherit;
-    outline-color: var(--c-primary);
-    outline-offset: var(--s_2);
-  }
-
-  button:hover {
-    background-color: var(--c-dark);
-  }
-
-  .category {
-    display: none;
-  }
-
+  
   @container (min-width: 40rem) {
     article {
       grid-template-columns: 1fr 1fr;

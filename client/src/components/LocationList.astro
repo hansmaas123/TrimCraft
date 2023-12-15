@@ -2,14 +2,14 @@
 const {locations} = Astro.props;
 import LocationCard from './../components/LocationCard.astro'
 ---
+<ul>
 {
-
-locations.map((location) => (
-    <ul>
+    locations.map((location) => (
         <li>
+        <a href={`/locations/${location.id}`}>
             <LocationCard location={location}/>
+        </a>
         </li>
-    </ul>
-) )
-
-}
+        ) )       
+    }
+</ul>

@@ -2,7 +2,11 @@
 import { Image } from "astro:assets";
 const { location } = Astro.props;
 ---
-    <a href={`/locations/${location.id}`}> {location.attributes.Name}</a>
+    
+  <h3>{location.attributes.Name}</h3>
+
+
+
 <style>
   .wrapper {
     height: 100%;

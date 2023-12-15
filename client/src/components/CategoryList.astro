@@ -1,0 +1,18 @@
+---
+import CategoryCard from "../components/CategoryCard.astro"
+const {categories} = Astro.props
+---
+<ul>
+    {
+        categories.map((category) => (
+
+        <li>
+            <a href={`/categories/${category.id}`}>
+                <CategoryCard category={category}/>
+            </a>
+        </li>
+        ))
+
+    }
+
+</ul>

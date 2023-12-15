@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import LocationDetailCard from "../../components/LocationDetailCard.astro";
 import PrevNext from "../../components/PrevNext.astro";
 import fetchApi from "../../lib/strapi";
+import CategoryList from "../../components/CategoryList.astro";
 
 export async function getStaticPaths() {
   const locations = await fetchApi({
@@ -23,10 +24,11 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const { location, prev, next } = Astro.props;
+const {location, prev, next } = Astro.props;
 ---
 
 <BaseLayout pageTitle={location.attributes.Name}>
   <LocationDetailCard location={location} />
+  <CategoryList categories={location.attributes.categories.data}/>
   <PrevNext prev={prev} next={next} path="locations" />
 </BaseLayout>

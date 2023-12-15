@@ -3,4 +3,8 @@ const pageTitle = "Tickets"
 import '../css/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-<BaseLayout pageTitle = {pageTitle} />
+<BaseLayout pageTitle = {pageTitle}>
+<div>
+    <h1 class="page__title">{pageTitle}</h1>
+</div>
+</BaseLayout>
