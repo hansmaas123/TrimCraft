@@ -7,7 +7,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 <div class="ticket__wrapper">
     <h1 class="page__title">{pageTitle}</h1>
     <p class="ticket__subtitle">Buy your tickets here</p>
-    <a class="terms" href=`/terms/`>Terms and Conditions</a>
+    <a class="terms" href=`${import.meta.env.BASE_URL}/terms/`>Terms and Conditions</a>
     <form class="form">
         <label class="amount">Amount</label>
         <input type="number" min="1" value="1" class="input">
