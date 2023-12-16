@@ -1,0 +1,86 @@
+---
+
+---
+
+<section class="content__wrapper--two">
+        <h2 class="subtitle subtitle__two">Why to attend TrimCraft</h2>
+
+        <div class="attend__squares">
+        
+        <div class="attend__item attend__item--1">
+            <h3 class="small__subtitle">Explore Diverse Landscapes:</h3>
+            <p class="attend__item--descr">Immerse yourself in enchanting gardens, historic estates, and urban jungles, each providing a unique canvas for your pruning creativity.</p>
+        </div>
+        <div class="attend__item attend__item--2">
+            <h3 class="small__subtitle">Learn from the Best:</h3>
+            <p class="attend__item--descr">Engage with renowned experts through master classes, hands-on workshops, and live demonstrations, gaining insights into advanced pruning techniques.<p>
+        </div>
+        <div class="attend__item attend__item--3">
+            <h3 class="small__subtitle">Network and Collaborate:</h3>
+            <p class="attend__item--descr">Connect with like-minded enthusiasts, artists, and vendors, fostering collaborations that extend beyond the summit.</p>
+        </div>
+        <div class="attend__item attend__item--">
+            <h3 class="small__subtitle">Unleash Your Creativity:</h3>
+            <p class="attend__item--descr">From bonsai aesthetics to topiary wonders, unleash your creativity in a supportive and inspiring environment.</p>
+        </div>
+        </div>
+    </section>
+
+    <style>
+         .subtitle__two{
+        margin-bottom: 5rem;
+        font-weight: 600;
+        color: white;
+    }
+    .content__wrapper--two{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10rem;
+        padding: 5rem 0rem;
+        background-image: url('./../assets/bg_bush.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .attend__squares{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        margin: 0rem 20rem;
+        gap: 3rem;
+    }
+    .
+    .attend__item--1{
+        grid-row: 1;
+        grid-column: 1;
+    }
+    .attend__item--2{
+        grid-row: 1;
+        grid-column: 2;
+    }
+    .attend__item--3{
+        grid-row: 2;
+        grid-column: 1;
+    }
+    .attend__item--4{
+        grid-row: 2;
+        grid-column: 2;
+    }
+    .attend__item{
+        background-color: darkolivegreen;
+        border-radius: 10px;
+        padding: 3rem 5rem;
+
+    }
+    .attend__item--descr{
+        color: white;
+        font-size: var(--s1);
+    }
+    .small__subtitle{
+        font-size: var(--s3);
+        color: white;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+    </style>

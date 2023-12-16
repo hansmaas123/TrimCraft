@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 const { location } = Astro.props;
 
 ---
-<a class="back" href="/schedule/">&lt; Back</a>
+<a class="back" href=`${import.meta.env.BASE_URL}/schedule/`>&lt; Back</a>
 <p class="page__title">{location.attributes.Name}</p>
 <div class="content__wrapper">
     <h2 class="subtitle subtitle__highlights">Highlights</h2>
@@ -30,7 +30,7 @@ const { location } = Astro.props;
 <style>
   .back{
     color: black;
-    font-size: 25px;
+    font-size: var(--s3);
     margin-left: 4rem;
   }
   .content__wrapper{
@@ -47,7 +47,7 @@ const { location } = Astro.props;
   }
   .highlights{
     height: fit-content;
-    font-size: 18px;
+    font-size: var(--s1);
     color: white;
   }
   .subtitle__highlights{
@@ -57,7 +57,7 @@ const { location } = Astro.props;
   }
   .travelinfo{
     width: 30rem;
-    font-size: 18px;
+    font-size: var(--s1);
   }
   .last__content{
     display: flex;

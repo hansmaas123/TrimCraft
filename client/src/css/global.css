@@ -1,10 +1,17 @@
+:root{
+    --s1: 18px;
+    --s2: 20px;
+    --s3: 25px;
+    --s4: 50px;
+}
 body{
     font-family: 'DM Sans', sans-serif;
 }
 .page__title{
-    font-size: 50px;
+    font-size: var(--s4);
     margin-left: 5rem;
     margin-top: 5rem;
+    font-weight: 500;
 }
  .subtitle {
      font-size: 35px;

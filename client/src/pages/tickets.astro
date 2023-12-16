@@ -4,7 +4,60 @@ import '../css/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout pageTitle = {pageTitle}>
-<div>
+<div class="ticket__wrapper">
     <h1 class="page__title">{pageTitle}</h1>
+    <p class="ticket__subtitle">Buy your tickets here</p>
+    <a class="terms" href=`/terms/`>Terms and Conditions</a>
+    <form class="form">
+        <label class="amount">Amount</label>
+        <input type="number" min="1" value="1" class="input">
+    </form>
+    <button class="order">Order</button>
 </div>
 </BaseLayout>
+
+
+<style>
+    .ticket__wrapper{
+        font-family: DM Sans, sans-serif;
+    }
+    .ticket__subtitle{
+        font-size: 25px;
+        margin-left: 5rem;
+        margin-top: 3rem;
+        margin-bottom: 1rem;
+    }
+    .terms{
+        color: black;
+        margin-left: 5rem;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        margin-left: 5rem;
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+    .amount{
+        font-size: 20px;
+        margin-bottom: .5rem;
+    }
+    .input{
+        width: 5rem;
+        height: 2rem;
+        border-color: darkolivegreen;
+        border-radius: 5px;
+        font-size: 30px;
+    }
+    .order{
+        margin-left: 5rem;
+        padding: 1rem 2rem;
+        font-size: 20px;
+        font-family: DM Sans, sans-serif;
+        background-color: darkolivegreen;
+        color: white;
+        border-style: none;
+        border-radius: 5px;
+        margin-bottom: 10rem;
+    }
+</style>

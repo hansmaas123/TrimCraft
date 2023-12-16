@@ -2,13 +2,13 @@
 const {category} = Astro.props;
 ---
 
-<div class="cac">
+<div>
     <h3 class="category__name">{category.attributes.Name}</h3>
 </div>
 
 <style>
     .category__name{
-        font-size: 20px;
+        font-size: var(--s2);
         color: white;
     }
 </style>

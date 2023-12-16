@@ -1,0 +1,83 @@
+---
+const { frontmatter } = Astro.props;
+import BaseLayout from "./BaseLayout.astro";
+---
+<BaseLayout>
+<section class="terms__wrapper">
+    <h1 class="terms__title">{frontmatter.title}</h1>
+    <p class="terms__descr">{frontmatter.description}</p>
+    <ol class="terms__list">
+    <li class="term__item">Ticket Purchase:</li>
+
+<p class="term__descr"> All ticket purchases for the Creative Pruning Conference are non-transferable and non-refundable.
+Each ticket is valid for one person and grants access to the specified conference dates and locations.</p>
+
+<li class="term__item">Conference Schedule:</li>
+
+<p class="term__descr">The conference schedule, including session topics, speakers, and locations, is subject to change. Any alterations will be communicated to ticket holders in advance.
+Cancellation Policy: The organizers reserve the right to cancel the conference in exceptional circumstances. In the event of cancellation, ticket holders will be notified, and a refund or credit toward future events will be offered.</p>
+
+<li class="term__item">Attendee Conduct:</li>
+
+<p class="term__descr">Attendees are expected to conduct themselves in a respectful and professional manner throughout the conference. Any disruptive behavior may result in removal from the event without a refund.</p>
+
+<li class="term__item">Photography and Recording:</li>
+
+<p class="term__descr">Photography, recording, or any form of reproduction of conference sessions is prohibited without prior written consent from the organizers.</p>
+
+<li class="term__item">Intellectual Property:</li>
+
+<p class="term__descr">All conference materials, including presentations, handouts, and other resources, are the intellectual property of the Creative Pruning Conference. Unauthorized distribution or use is strictly prohibited.</p>
+
+<li class="term__item">Liability:</li>
+
+<p class="term__descr">The organizers are not liable for any personal injury, loss, or damage to property during the conference. Attendees are responsible for their belongings and well-being.</p>
+
+<li class="term__item">Privacy Policy:</li>
+
+<p class="term__descr">Attendee information collected during the ticket purchase process will be used solely for event-related communication and will not be shared with third parties.</p>
+
+<li class="term__item">Force Majeure:</li>
+
+<p class="term__descr">The organizers are not liable for any failure or delay in performance resulting from acts beyond their control, including but not limited to natural disasters, government regulations, or strikes.</p>
+
+<li class="term__item">Ticket Holder Responsibilities:</li>
+
+<p class="term__descr">It is the responsibility of the ticket holder to check and comply with any travel restrictions, visa requirements, or health and safety guidelines in place at the conference locations.</p>
+
+<li class="term__item">Contact Information:</li>
+
+<p class="term__descr">For any inquiries or concerns regarding ticket purchases and terms, please contact us at [organizer's contact information].
+By purchasing a ticket for the Creative Pruning Conference, you agree to abide by these terms and conditions. The organizers reserve the right to modify these terms at any time, and updated terms will be posted on the conference website.</p>
+</ol>
+</section>
+</BaseLayout>
+<style>
+    .terms__wrapper{
+        margin-left: 5rem;
+    }
+    .terms__descr{
+        font-size: 25px;
+        margin-bottom: 3rem;
+    }
+    .terms__title{
+        font-size: 50px;
+        margin-bottom: 1rem;
+        margin-top: 4rem;
+        font-weight: 600;
+    }
+    .term__descr{
+        font-size: 18px;
+        margin-bottom: 3rem;
+        width: 40rem;
+    }
+    .term__item{
+        margin-bottom: 1rem;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .terms__list{
+        margin-bottom: 6rem;
+        list-style: decimal;
+    }
+</style>

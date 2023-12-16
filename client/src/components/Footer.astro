@@ -1,29 +1,65 @@
 ---
+import Facebook from './../../public/facebook.svg'
+import Instagram from './../../public/instagram.svg'
+import Tiktok from './../../public/tiktok.svg'
+import Twitter from './../../public/twitter.svg'
+import Linefooter from './../../public/linefooter.svg'
+import { Image } from "astro:assets";
 ---
 
 <footer>
     <div class="footer__contact">
       <p class="footer__adress">TrimCraft<br>Bush Lane<br>210<br>2520 Ranst<br></p>
       <div class="footer__contact--wrapper">
-        <a href="mailto:Stingstitute@gmail.com" class="footer__email">E-mail: Trimcraft@gmail.com</a>
+        <a href="mailto:trimcraft@gmail.com" class="footer__email">E-mail: Trimcraft@gmail.com</a>
         <a href="tel:8013590071" class="footer__phone">Phone: 801-359-0071</a>
       </div>
     </div>
     <div class="footer__bottom">
       <div class="footer__links">
-        <a href="/" class="footer__link">Home</a>
-        <a href="/schedule/" class="footer__link">Schedule</a>
-        <a href="/tickets/" class="footer__link">Tickets</a>
+        <a href=`${import.meta.env.BASE_URL}/` class="footer__link">Home</a>
+        <a href=`${import.meta.env.BASE_URL}/schedule/` class="footer__link">Schedule</a>
+        <a href=`${import.meta.env.BASE_URL}/tickets/` class="footer__link">Tickets</a>
       </div>
       <div class="footer__socialmedia">
-        <a href=""><img src="./../../public/facebook.svg" alt="facebook" class="footer__socialmedia--image" width="15px"></a>
-        <a href=""><img src="./../../public/twitter.svg" alt="twitter" class="footer__socialmedia--image" width="20px"></a>
-        <a href=""><img src="./../../public/instagram.svg" alt="instagram" class="footer__socialmedia--image" width="20px"></a>
-        <a href=""><img src="./../../public/tiktok.svg" alt="tiktok" class="footer__socialmedia--image" width="20px"></a>
-      </div>
-    </div>
-    <div class="footer__line--wrapper">
-      <img src="./../../public/linefooter.svg" alt="line" class="footer__line">
+        <a href=`${import.meta.env.BASE_URL}/`><Image
+            src={Facebook}
+          alt="facebook"
+          width="25px"
+          height="25px"
+          class="footer__socialmedia--image"
+              /></a>
+        <a href=`${import.meta.env.BASE_URL}/`><Image
+            src={Twitter}
+          alt="twitter"
+          width="25px"
+          height="25px"
+          class="footer__socialmedia--image"
+              /></a>
+        <a href=`${import.meta.env.BASE_URL}/`><Image
+            src={Instagram}
+          alt="instagram"
+          width="25px"
+          height="25px"
+          class="footer__socialmedia--image"
+              /></a>
+        <a href=`${import.meta.env.BASE_URL}/`><Image
+            src={Tiktok}
+          alt="tiktok"
+          width="25px"
+          height="25px"
+          class="footer__socialmedia--image"
+              /></a>
+            </div>
+          </div>
+          <div class="footer__line--wrapper">
+      <a href=`${import.meta.env.BASE_URL}/`><Image
+          src={Linefooter}
+        alt="line"
+        width="1350px"
+        height="10px"
+        class="footer__line"
+            /></a>
     </div>
   </footer>
 
@@ -37,9 +73,8 @@
     display: flex;
     padding: 10rem 1rem 4rem 4rem;
     justify-content: space-between;
-    font-style: normal;
     font-weight: 500;
-    font-size: 25px;
+    font-size: var(--s3);
     line-height: 109.02%;
     letter-spacing: 0.015em;
 }
@@ -48,10 +83,6 @@
     margin-top: 2rem;
     display: flex;
     flex-direction: column;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 25px;
-    letter-spacing: 0.015em;
     padding-right: 3rem;
 }
 
@@ -76,7 +107,7 @@
 .footer__links {
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--s2);
     letter-spacing: 0.015em;
     display: flex;
     gap: 3.5rem;
@@ -87,7 +118,7 @@
     color: white;
 }
 .footer__socialmedia--image {
-margin-left: 2rem;
+    margin-left: 2rem;
 }
 .footer__line--wrapper {
     display: flex;
@@ -95,6 +126,5 @@ margin-left: 2rem;
 }
 .footer__line {
     padding-bottom: 3rem;
-    width: 93%;
 }
 </style>

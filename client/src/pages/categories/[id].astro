@@ -26,6 +26,7 @@ const { category } = Astro.props;
 
 
 <BaseLayout pageTitle={category.attributes.Name}>
+  <a class="back" href=`${import.meta.env.BASE_URL}/schedule/`>&lt; Schedule</a>
   <h2 class="subtitle subtitle__category">All locations within the "<span>{category.attributes.Name}</span>" category</h2>
   <LocationList locations={category.attributes.locations.data} />
 </BaseLayout>
@@ -33,5 +34,11 @@ const { category } = Astro.props;
 <style>
   .subtitle__category{
     margin-left: 5rem;
+    margin-top: 3rem;
    }
+   .back{
+    color: black;
+    font-size: 25px;
+    margin-left: 4rem;
+  }
 </style>

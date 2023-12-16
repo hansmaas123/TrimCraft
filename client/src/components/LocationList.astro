@@ -5,7 +5,7 @@ import LocationCard from './../components/LocationCard.astro'
 <ul class="location__list">
 {
     locations.map((location) => (
-        <a class="location" href={`/locations/${location.id}`}>
+        <a class="location" href={`${import.meta.env.BASE_URL}/locations/${location.id}`}>
             <li class="location__list--item">
             <p class="location__day">Day {location.id}</p>
                 <LocationCard location={location}/>

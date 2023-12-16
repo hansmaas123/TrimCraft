@@ -2,11 +2,11 @@
 ---
 
 <nav class="nav__wrapper--all">
-    <a class="nav__item" href="/">TrimCraft</a>
+    <a class="nav__item" href=`${import.meta.env.BASE_URL}/`>TrimCraft</a>
     <div class="nav__wrapper">
-        <a class="nav__item nav__item--left" href="/">Home</a>
-        <a class="nav__item nav__item--left" href="/schedule/">Schedule</a>
-        <a class="nav__item nav__item--left" href="/tickets/">Tickets</a>
+        <a class="nav__item nav__item--left" href=`${import.meta.env.BASE_URL}/`>Home</a>
+        <a class="nav__item nav__item--left" href=`${import.meta.env.BASE_URL}/schedule/`>Schedule</a>
+        <a class="nav__item nav__item--left" href=`${import.meta.env.BASE_URL}/tickets/`>Tickets</a>
     </div>
 </nav>
 
@@ -20,7 +20,7 @@
 
     .nav__item{
         color: black;
-        font-size: 20px;
+        font-size: var(--s2);
         text-decoration: none;
         font-family: 'DM Sans', sans-serif;
     }

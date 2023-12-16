@@ -6,7 +6,7 @@ const {categories} = Astro.props
 <ul class="categories__list">
     {
         categories.map((category) => (
-            <a class="category__item" href={`/categories/${category.id}`}>
+            <a class="category__item" href={`${import.meta.env.BASE_URL}/categories/${category.id}`}>
                 <li class="categories__list--item">
                     <CategoryCard category={category}/>
                 </li>

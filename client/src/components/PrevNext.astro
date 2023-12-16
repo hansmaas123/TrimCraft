@@ -23,20 +23,34 @@ const { prev, next, path } = Astro.props;
 </style>
 
 <nav>
-  <ul>
+  <ul class="nextPrev__wrapper">
     {
       prev && (
         <li>
-          <a href={`/${path}/${prev.id}`}>Previous</a>
+          <a class="button prev" href={`${import.meta.env.BASE_URL}/${path}/${prev.id}`}>&lt Previous Location</a>
         </li>
       )
     }
     {
       next && (
         <li class="right">
-          <a href={`/${path}/${next.id}`}>Next</a>
+          <a class="button next" href={`${import.meta.env.BASE_URL}/${path}/${next.id}`}> Next Location &gt</a>
         </li>
       )
     }
   </ul>
 </nav>
+<style>
+  .nextPrev__wrapper{
+    display: flex;
+    gap: 10rem;
+    margin: 5rem 0rem;
+  }
+  .button{
+    background-color: darkolivegreen;
+    padding: 1rem 1.5rem;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+  }
+</style>
