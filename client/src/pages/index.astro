@@ -59,9 +59,11 @@ const locations = await fetchApi({
         </div>
     </section>
     <section class="content__wrapper--three">
-        <div class="featured__item">
-            <p class="featured__title featured__title--one">{locations[0].attributes.Name}</p>
-        <Image
+        <h2 class="subtitle subtitle__three">Featured Locations</h2>
+        <div class="content__wrapper--threein">
+            <div class="featured__item">
+                <p class="featured__title featured__title--one">{locations[0].attributes.Name}</p>
+            <Image
           src={`${import.meta.env.STRAPI_URL}${
             locations[0].attributes.image?.data.attributes.url
           }`}
@@ -69,49 +71,42 @@ const locations = await fetchApi({
           width="400"
           height="250"
           widths={[250, 350, 500, 750]}
+          class="featured__item--img1"
           sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
-          />
-          <a href="">View details</a>
-        </div>
-        <div class="featured__item">
-            <p class="featured__title featured__title--two">{locations[1].attributes.Name}</p>
-            <Image
+              />
+              <a class="featured__item--button" href={`/locations/${locations[0].id}`}>View details</a>
+            </div>
+            <div class="featured__item">
+                <p class="featured__title featured__title--two">{locations[1].attributes.Name}</p>
+                <Image
             src={`${import.meta.env.STRAPI_URL}${
                 locations[1].attributes.image?.data.attributes.url
             }`}
           alt="Location image"
-          width="300"
-          height="400"
+          width="400"
+          height="250"
           widths={[250, 350, 500, 750]}
+          class="featured__item--img2"
           sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
-          />
-          <a href="">View details</a>
-        </div>
-        <div class="featured__item">
-            <p class="featured__title featured__title--three">{locations[2].attributes.Name}</p>
-            <Image
+              />
+              <a class="featured__item--button" href={`/locations/${locations[1].id}`}>View details</a>
+            </div>
+            <div class="featured__item">
+                <p class="featured__title featured__title--three">{locations[2].attributes.Name}</p>
+                <Image
             src={`${import.meta.env.STRAPI_URL}${
                 locations[2].attributes.image?.data.attributes.url
             }`}
           alt="Location image"
-          width="300"
-          height="400"
+          width="400"
+          height="250"
           widths={[250, 350, 500, 750]}
+          class="featured__item--img3"
           sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
-          />
-          <a href="">View details</a>
+              />
+              <a class="featured__item--button" href={`/locations/${locations[1].id}`}>View details</a>
+            </div>
         </div>
-        <!-- <Image
-          src={`${import.meta.env.STRAPI_URL}${
-            location.attributes.image?.data.attributes.url
-          }`}
-          alt="Location image"
-          width="300"
-          height="400"
-          widths={[250, 350, 500, 750]}
-          sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
-        /> -->
-        
     </section>
 </BaseLayout>
 <style>
@@ -142,9 +137,9 @@ const locations = await fetchApi({
     .button__tickets{
         color: white;
         text-decoration: none;
-        padding: 1rem 2rem;
+        padding: 1rem 2.7rem;
         background-color: darkolivegreen;
-        border: solid 5px darkolivegreen;
+        border: solid 4px darkolivegreen;
         border-radius: 5px;
         margin-left: 4rem;
         font-size: 20px;
@@ -157,11 +152,6 @@ const locations = await fetchApi({
         align-items: center;
         margin: 7rem 0rem;
         margin-bottom: 10rem;
-    }
-    .subtitle{
-        font-size: 35px;
-        margin-bottom: 1.5rem;
-        font-weight: 600;
     }
     .whattoexpect{
         width: 35rem;
@@ -226,20 +216,38 @@ const locations = await fetchApi({
     }
    
 
-
    .content__wrapper--three{
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    margin-bottom: 5rem;
+        margin-bottom: 10rem;
+    }
+   .content__wrapper--threein{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 5rem;
    }
    .featured__title{
-    font-size: 20px;
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 1rem;
    }
    .featured__item{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+   }
+   .featured__item--button{
+        color: white;
+        text-decoration: none;
+        padding: 1rem 1.5rem;
+        background-color: darkolivegreen;
+        border: solid 5px darkolivegreen;
+        border-radius: 5px;
+        font-size: 20px;
+        margin-top: 2rem;
+   }
+   .subtitle__three{
+    text-align: center;
+    margin-bottom: 5rem;
    }
 </style>
 

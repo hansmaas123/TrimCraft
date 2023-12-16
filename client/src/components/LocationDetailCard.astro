@@ -3,7 +3,11 @@ import { Image } from "astro:assets";
 const { location } = Astro.props;
 
 ---
-  <div class="content__wrapper">
+<a class="back" href="/schedule/">&lt; Back</a>
+<p class="page__title">{location.attributes.Name}</p>
+<div class="content__wrapper">
+    <h2 class="subtitle subtitle__highlights">Highlights</h2>
+  <div class="highlights__content--wrapper">
     <p class="highlights"> {location.attributes.Highlights}</p>
     <Image
           src={`${import.meta.env.STRAPI_URL}${
@@ -16,61 +20,53 @@ const { location } = Astro.props;
           sizes="(max-width: 35em) 70vw, (max-width: 50em) 60vw, 30vw"
         />
   </div>
-  <div class="last__content">
-    <p class="travelinfo">{location.attributes.Travelinfo}</p>
-    <!-- <p>{location.attributes.categories?.data?.attributes?.Name}</p> -->
-  </div>
+</div>
+<div class="last__content">
+  <h2 class="subtitle">Travel info</h2>
+  <p class="travelinfo">{location.attributes.Travelinfo}</p>
+</div>
       
     
 <style>
+  .back{
+    color: black;
+    font-size: 25px;
+    margin-left: 4rem;
+  }
   .content__wrapper{
+    background-color: darkolivegreen;
+    border-radius: 10px;
+    margin: 3rem 5rem;
+    padding: 0rem 4rem;
+  }
+  .highlights__content--wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15rem;
-    height: fit-content;
+    gap: 5rem;
   }
   .highlights{
-    width: 50rem;
+    height: fit-content;
+    font-size: 18px;
+    color: white;
+  }
+  .subtitle__highlights{
+    color: white;
+    padding-top: 4rem;
+    margin-bottom: -3rem;
   }
   .travelinfo{
-    width: 60rem;
+    width: 30rem;
+    font-size: 18px;
   }
-.last__content{
-  display: flex;
-  justify-content: center;
-}
+  .last__content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   img {
     aspect-ratio: 3/4;
     object-fit: contain;
-    grid-area: img;
-    justify-self: center;
-    padding: var(--s1);
   }
 
-  
-  @container (min-width: 40rem) {
-    article {
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: auto 1fr auto auto;
-      grid-template-areas:
-        "img title"
-        "img desc"
-        "img category"
-        "img price"
-        "img cta";
-    }
-
-    article:hover {
-      box-shadow: var(--defaultShadow);
-    }
-
-    .price {
-      justify-self: flex-end;
-    }
-
-    .category {
-      display: inline;
-    }
-  }
 </style>

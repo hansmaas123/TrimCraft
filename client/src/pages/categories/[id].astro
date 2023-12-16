@@ -2,6 +2,7 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import LocationList from "../../components/LocationList.astro";
 import fetchApi from "../../lib/strapi";
+import './../../css/global.css'
 
 export async function getStaticPaths() {
   const categories = await fetchApi({
@@ -23,20 +24,14 @@ export async function getStaticPaths() {
 const { category } = Astro.props;
 ---
 
-<style>
-  h2 {
-    font-size: var(--fs-l);
-    font-weight: bold;
-    margin-bottom: var(--s1);
-    color: white;
-  }
 
-  span {
-    color: var(--c-primary);
-  }
-</style>
-
-<BaseLayout pageTitle={category.attributes.name}>
-  <h2>locations in the <span>{category.attributes.name}</span> category</h2>
+<BaseLayout pageTitle={category.attributes.Name}>
+  <h2 class="subtitle subtitle__category">All locations within the "<span>{category.attributes.Name}</span>" category</h2>
   <LocationList locations={category.attributes.locations.data} />
 </BaseLayout>
+
+<style>
+  .subtitle__category{
+    margin-left: 5rem;
+   }
+</style>

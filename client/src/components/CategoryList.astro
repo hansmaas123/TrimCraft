@@ -2,17 +2,37 @@
 import CategoryCard from "../components/CategoryCard.astro"
 const {categories} = Astro.props
 ---
-<ul>
+<h2 class="subtitle subtitle__tags">Tags</h2>
+<ul class="categories__list">
     {
         categories.map((category) => (
-
-        <li>
-            <a href={`/categories/${category.id}`}>
-                <CategoryCard category={category}/>
+            <a class="category__item" href={`/categories/${category.id}`}>
+                <li class="categories__list--item">
+                    <CategoryCard category={category}/>
+                </li>
             </a>
-        </li>
         ))
 
     }
 
 </ul>
+<style>
+    .categories__list{
+        margin: 4rem 0rem;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .categories__list--item{
+        background-color: darkolivegreen;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+    }
+    .category__item{
+        text-decoration: none;
+    }
+    .subtitle__tags{
+        text-align: center;
+        margin-top: 5rem;
+        margin-bottom: 3rem;
+    }
+</style>

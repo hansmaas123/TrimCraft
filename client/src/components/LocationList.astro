@@ -2,14 +2,43 @@
 const {locations} = Astro.props;
 import LocationCard from './../components/LocationCard.astro'
 ---
-<ul>
+<ul class="location__list">
 {
     locations.map((location) => (
-        <li>
-        <a href={`/locations/${location.id}`}>
-            <LocationCard location={location}/>
+        <a class="location" href={`/locations/${location.id}`}>
+            <li class="location__list--item">
+            <p class="location__day">Day {location.id}</p>
+                <LocationCard location={location}/>
+            </li>
         </a>
-        </li>
-        ) )       
+        ))       
     }
 </ul>
+
+<style>
+    .location__list{
+        margin-left: 5rem;
+        margin-top: 3rem;
+        margin-bottom: 10rem;
+    }
+    .location__list--item{
+        display: flex;
+        background-color: darkolivegreen;
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+        width: 45rem;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .location{
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        font-size: 2rem;
+    }
+    .location__day{
+        font-size: 2.5rem;
+        color: white;
+        margin-right: 3rem;
+    }
+</style>
